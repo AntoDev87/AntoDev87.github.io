@@ -434,11 +434,37 @@ var D01 = false, D02 = false, D03 = false;
     
 var currentdate = new Date(); 
 
-var data = currentdate.getFullYear()+""+(currentdate.getMonth()+1)+""+currentdate.getDate()
 
 var ora;
 
 var disp_ora;
+
+var day;
+
+var month;
+
+
+if(currentdate.getDate() < 10){
+    
+    day = "0"+currentdate.getDate(); 
+    
+}else{
+    
+    day = currentdate.getDate(); 
+    
+}
+
+if(currentdate.getMonth()+1 < 10){
+    
+    month = "0"+(currentdate.getMonth()+1); 
+    
+}else{
+    
+    month = currentdate.getMonth()+1; 
+
+}
+
+
 
 if(currentdate.getHours() < 10){
     
@@ -454,11 +480,13 @@ if(currentdate.getHours() < 10){
     
 }
 
-$('#_data').html(currentdate.getDate()+"/"+(currentdate.getMonth()+1)+"/"+currentdate.getFullYear());
+$('#_data').html(day+"/"+month+"/"+currentdate.getFullYear());
 
 $('#_ora').html(disp_ora+":00");
 
 var ora2 = currentdate.getHours();
+
+var data = currentdate.getFullYear()+""+month+""+day;
 
 var currDate= data+"Z"+ora;
 
